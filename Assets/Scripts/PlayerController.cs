@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     private Transform cameraTransform;
     private Vector3 actualVelocity;
 
+    protected AudioSource audioSource;
+    [SerializeField] protected AudioClip walkingSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,7 @@ public class PlayerController : MonoBehaviour
         raycastSource = GameObject.Find("RaycastSource").transform;
         Cursor.lockState = CursorLockMode.Locked;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +44,10 @@ public class PlayerController : MonoBehaviour
         if(gameManager.GetGameStatus())
         {
             Action();
+        }
+        else
+        {
+            audioSource.Stop();
         }
 
     }
@@ -52,6 +60,9 @@ public class PlayerController : MonoBehaviour
         {
             DetectObject();
         }
+
+
+
     }
 
     void DetectObject()
@@ -77,11 +88,20 @@ public class PlayerController : MonoBehaviour
         {
             hit.collider.gameObject.GetComponent<NPCBehaviour>().OnInterraction();
         }
+
+        else if (hit.collider.CompareTag("Collectibles"))
+        {
+            hit.collider.gameObject.GetComponent<Collectibles>().OnInterraction();
+        }
+
+        else if (hit.collider.CompareTag("Telescope"))
+        {
+            hit.collider.gameObject.GetComponent<TelescopeController>().OnInterraction();
+        }
     }
 
     private void Move()
     {
-
         characterController.Move( PlayerMovement() + Gravity() );
     }
 
@@ -93,6 +113,14 @@ public class PlayerController : MonoBehaviour
 
         if (directionWOCam.magnitude >= 0.1f)
         {
+            if (!audioSource.isPlaying)
+            {
+                Debug.Log("NoSound");
+                audioSource.clip = walkingSound;
+                audioSource.time = 0;
+                audioSource.Play();
+            }
+
             float targetAngle = Mathf.Atan2(directionWOCam.x, directionWOCam.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
             float smoothAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, smoothAngle, 0f);
@@ -101,6 +129,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
             return Vector3.zero;
         }
     }
@@ -125,5 +157,18 @@ public class PlayerController : MonoBehaviour
 
         return actualVelocity * Time.deltaTime;
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Outside"))
+        {
+            gameManager.ChangeAmbient("Outside");
+        }
+
+        if (other.CompareTag("Inside"))
+        {
+            gameManager.ChangeAmbient("Inside");
+        }
     }
 }

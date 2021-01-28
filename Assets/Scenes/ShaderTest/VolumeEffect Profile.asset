@@ -179,13 +179,13 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {r: 0.404, g: 0.36559385, b: 0.289264, a: 1}
+    m_Value: {r: 0.213, g: 0.20584033, b: 0.18973109, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
   highlights:
     m_OverrideState: 1
-    m_Value: {r: 0.631, g: 0.5812877, b: 0.528147, a: 1}
+    m_Value: {r: 0.72400004, g: 0.6655404, b: 0.6070808, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
