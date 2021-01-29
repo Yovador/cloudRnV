@@ -12,17 +12,8 @@ public class Collectibles : Interractible
         if (!collectingSequenceOn)
         {
 
-            StartCoroutine( CollectingSequence() );
+            gameManager.AddToCollectedCollectibles(gameObject);
         }
     }
 
-    IEnumerator CollectingSequence()
-    {
-        collectingSequenceOn = true;
-
-        gameManager.AddToCollectedCollectibles(gameObject);
-        yield return new WaitForSecondsRealtime(audioClip.length);
-        gameObject.SetActive(false);
-        collectingSequenceOn = false;
-    }
 }

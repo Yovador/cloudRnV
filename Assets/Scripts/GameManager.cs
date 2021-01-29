@@ -99,6 +99,13 @@ public class GameManager : MonoBehaviour
     public void ResetSelected()
     {
         uiController.HideDialogBox();
+        if(GetSelectedObject() != null)
+        {
+            if (GetSelectedObject().CompareTag("Collectibles"))
+            {
+                GetSelectedObject().SetActive(false);
+            }
+        }
         SetSelectedObject(null);
     }
 }
