@@ -11,9 +11,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<AudioClip> ambientOutside = new List<AudioClip>();
     [SerializeField] private List<AudioClip> ambientInside = new List<AudioClip>();
-    private Dictionary<string, List<AudioClip>> ambientDic = new Dictionary<string, List<AudioClip>>() ;
-    private string currentAmbient = "Outside";
+    private Dictionary<string, List<AudioClip>> ambientDic = new Dictionary<string, List<AudioClip>>();
 
+
+    private string currentAmbient = "Outside";
+    private UIController uiController;
+    private GameObject selectedObject = null;
 
     private void Start()
     {
@@ -24,6 +27,8 @@ public class GameManager : MonoBehaviour
         ambientDic.Add("Inside", ambientInside);
 
         PlayRandomAmbient(ambientDic[currentAmbient]);
+
+        uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
 
     }
 
@@ -74,11 +79,26 @@ public class GameManager : MonoBehaviour
         Debug.LogWarning("VICTOIRE");
     }
 
+    public GameObject GetSelectedObject()
+    {
+        return selectedObject;
+    }
+
+    public void SetSelectedObject(GameObject obj)
+    {
+        selectedObject = obj;
+    }
 
     private void PlayRandomAmbient(List<AudioClip> ambient)
     {
         
         audioSource.clip = ambient[Random.Range(0, ambient.Count - 1)];
         audioSource.Play();
+    }
+
+    public void ResetSelected()
+    {
+        uiController.HideDialogBox();
+        SetSelectedObject(null);
     }
 }

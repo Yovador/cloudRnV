@@ -26,7 +26,7 @@ public class UIController : MonoBehaviour
     {
         if (Input.GetButtonDown("Return") && !gameManager.GetGameStatus() )
         {
-            HideDialogBox();
+            gameManager.ResetSelected();
         }    
     }
 

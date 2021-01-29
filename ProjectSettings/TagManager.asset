@@ -10,6 +10,7 @@ TagManager:
   - Telescope
   - Outside
   - Inside
+  - UIController
   layers:
   - Default
   - TransparentFX

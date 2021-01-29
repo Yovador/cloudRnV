@@ -41,43 +41,77 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if(gameManager.GetGameStatus())
+
+        Action();
+
+    }
+
+    private void Action()
+    {
+        raycastSource.rotation = cameraTransform.rotation;
+
+        if (gameManager.GetGameStatus())
         {
-            Action();
+            Move();
+            HighlightInterractible();
         }
         else
         {
             audioSource.Stop();
         }
 
-    }
-
-    private void Action()
-    {
-        Move();
-
         if (Input.GetButtonDown("Interract"))
         {
             DetectObject();
         }
 
-
-
     }
 
     void DetectObject()
     {
-        raycastSource.rotation = cameraTransform.rotation;
 
         RaycastHit hit;
-        Ray forwardRay = new Ray(raycastSource.position, raycastSource.forward * playerRange);
-        Debug.DrawRay(raycastSource.position, raycastSource.forward * playerRange, Color.red);
+        CastRayForward();
 
-
-        if (Physics.Raycast(forwardRay, out hit, 10f, raycastMask))
+        if (Physics.Raycast(CastRayForward(), out hit, 10f, raycastMask))
         {
             Interract(hit);
         }
+        else
+        {
+            gameManager.ResetSelected();
+        }
+    }
+
+    void HighlightInterractible()
+    {
+        RaycastHit hit;
+        CastRayForward();
+        if (Physics.Raycast(CastRayForward(), out hit, 10f, raycastMask))
+        {
+            if (hit.collider.CompareTag("NPC"))
+            {
+                hit.collider.gameObject.GetComponent<NPCBehaviour>().StartHighlight();
+            }
+
+            else if (hit.collider.CompareTag("Collectibles"))
+            {
+                hit.collider.gameObject.GetComponent<Collectibles>().StartHighlight();
+            }
+
+            else if (hit.collider.CompareTag("Telescope"))
+            {
+                hit.collider.gameObject.GetComponent<TelescopeController>().StartHighlight();
+            }
+        }
+
+    }
+
+    Ray CastRayForward()
+    {
+        Debug.DrawRay(raycastSource.position, raycastSource.forward * playerRange, Color.red);
+        Ray forwardRay = new Ray(raycastSource.position, raycastSource.forward * playerRange);
+        return forwardRay;
     }
 
     void Interract(RaycastHit hit)
@@ -98,6 +132,10 @@ public class PlayerController : MonoBehaviour
         {
             hit.collider.gameObject.GetComponent<TelescopeController>().OnInterraction();
         }
+        else if (hit.collider.CompareTag("Ground"))
+        {
+            gameManager.ResetSelected();
+        }
     }
 
     private void Move()
@@ -115,7 +153,6 @@ public class PlayerController : MonoBehaviour
         {
             if (!audioSource.isPlaying)
             {
-                Debug.Log("NoSound");
                 audioSource.clip = walkingSound;
                 audioSource.time = 0;
                 audioSource.Play();
