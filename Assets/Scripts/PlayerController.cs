@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-
         Action();
 
     }
@@ -54,16 +53,18 @@ public class PlayerController : MonoBehaviour
         {
             Move();
             HighlightInterractible();
+            if (Input.GetButtonDown("Interract"))
+            {
+                DetectObject();
+            }
         }
         else
         {
             audioSource.Stop();
         }
 
-        if (Input.GetButtonDown("Interract"))
-        {
-            DetectObject();
-        }
+
+
 
     }
 

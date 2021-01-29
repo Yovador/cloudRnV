@@ -445,11 +445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fcd818f0d5a887409ab1902c20504c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: Je suis la Cible 1, et ceci est un test
-  audioClip: {fileID: 8300000, guid: 453cd7761a9b7c44e907f275e5d7738d, type: 3}
   highlightMaterial: {fileID: 2100000, guid: cb8a1f1948a7ada42b8aa02de2de84e4, type: 2}
   highlightCooldownMax: 2
-  nameInterractible: Cible 1
+  jsonData: {fileID: 4900000, guid: 3ccba867abdb7124092b41f8eddd7d7a, type: 3}
 --- !u!82 &165716098
 AudioSource:
   m_ObjectHideFlags: 0
@@ -754,10 +752,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade8b348b71ed46419cd6664a8aa18fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: You just got a piece !
-  audioClip: {fileID: 8300000, guid: 8c1fa307e0d433546a7711c2c1a0f6e0, type: 3}
   highlightMaterial: {fileID: 2100000, guid: cb8a1f1948a7ada42b8aa02de2de84e4, type: 2}
   highlightCooldownMax: 2
+  jsonData: {fileID: 4900000, guid: 87fbc7abb260e6844bb515026558ec8b, type: 3}
 --- !u!135 &262142615
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -827,7 +824,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262142613}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.17, y: 4.26, z: -32.25}
+  m_LocalPosition: {x: -12.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 445808124}
@@ -984,7 +981,7 @@ GameObject:
   - component: {fileID: 294031720}
   - component: {fileID: 294031721}
   m_Layer: 9
-  m_Name: Cible2
+  m_Name: Bob
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1077,11 +1074,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fcd818f0d5a887409ab1902c20504c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: AAAAAAAAAAAAAAAAAAAAAa
-  audioClip: {fileID: 8300000, guid: 89a1afc17e0d257449e0fb86c082a5e6, type: 3}
   highlightMaterial: {fileID: 2100000, guid: cb8a1f1948a7ada42b8aa02de2de84e4, type: 2}
   highlightCooldownMax: 2
-  nameInterractible: Cible 2
+  jsonData: {fileID: 4900000, guid: e3798ecbc57bd6f45890dccb31bf87ac, type: 3}
 --- !u!82 &294031721
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1283,7 +1278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374726138}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3039341, y: 29.312244, z: -35.616932}
+  m_LocalPosition: {x: -2.55, y: 27.553, z: -35.795}
   m_LocalScale: {x: 1, y: 2.575, z: 4.1469326}
   m_Children: []
   m_Father: {fileID: 1070611623}
@@ -1473,10 +1468,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade8b348b71ed46419cd6664a8aa18fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: You just got a piece !
-  audioClip: {fileID: 8300000, guid: 8c1fa307e0d433546a7711c2c1a0f6e0, type: 3}
   highlightMaterial: {fileID: 2100000, guid: cb8a1f1948a7ada42b8aa02de2de84e4, type: 2}
   highlightCooldownMax: 2
+  jsonData: {fileID: 4900000, guid: 87fbc7abb260e6844bb515026558ec8b, type: 3}
 --- !u!135 &471221406
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1546,7 +1540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471221404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.28, y: -0.91, z: 24.9}
+  m_LocalPosition: {x: -9.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 445808124}
@@ -1701,10 +1695,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade8b348b71ed46419cd6664a8aa18fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: You just got a piece !
-  audioClip: {fileID: 8300000, guid: 8c1fa307e0d433546a7711c2c1a0f6e0, type: 3}
   highlightMaterial: {fileID: 2100000, guid: cb8a1f1948a7ada42b8aa02de2de84e4, type: 2}
   highlightCooldownMax: 2
+  jsonData: {fileID: 4900000, guid: 87fbc7abb260e6844bb515026558ec8b, type: 3}
 --- !u!135 &640189092
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1774,7 +1767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640189090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.9, y: -0.87, z: 19.9}
+  m_LocalPosition: {x: -3.23, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 445808124}
@@ -2037,10 +2030,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade8b348b71ed46419cd6664a8aa18fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: You just got a piece !
-  audioClip: {fileID: 8300000, guid: 8c1fa307e0d433546a7711c2c1a0f6e0, type: 3}
   highlightMaterial: {fileID: 2100000, guid: cb8a1f1948a7ada42b8aa02de2de84e4, type: 2}
   highlightCooldownMax: 2
+  jsonData: {fileID: 4900000, guid: 87fbc7abb260e6844bb515026558ec8b, type: 3}
 --- !u!135 &768341079
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2110,7 +2102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768341077}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.45, y: -0.88, z: 90.58}
+  m_LocalPosition: {x: -6.26, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 445808124}
@@ -2236,7 +2228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794513569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.606066, y: -44.055244, z: 63.46493}
+  m_LocalPosition: {x: -11.5, y: -43.87, z: 65.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1070611623}
@@ -3380,7 +3372,7 @@ GameObject:
   - component: {fileID: 1657145012}
   - component: {fileID: 1657145013}
   m_Layer: 9
-  m_Name: Cible3
+  m_Name: SusCube
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3473,11 +3465,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fcd818f0d5a887409ab1902c20504c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: 69
-  audioClip: {fileID: 8300000, guid: e067e62c0ad8e5e4e9737e4785711385, type: 3}
   highlightMaterial: {fileID: 2100000, guid: cb8a1f1948a7ada42b8aa02de2de84e4, type: 2}
   highlightCooldownMax: 2
-  nameInterractible: Bob
+  jsonData: {fileID: 4900000, guid: 8ca1dbe3bd1f30c42b666cdc8da0d60a, type: 3}
 --- !u!82 &1657145013
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3641,11 +3631,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e42f9bac309c7a4984de8bb1f148286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: Bravo vous avez tout !
-  audioClip: {fileID: 8300000, guid: ef6b312997bc1684395fd7e091894dd1, type: 3}
   highlightMaterial: {fileID: 2100000, guid: cb8a1f1948a7ada42b8aa02de2de84e4, type: 2}
   highlightCooldownMax: 2
-  failureAudioClip: {fileID: 8300000, guid: 88c6227a53404f84fb1e6a196513cfbe, type: 3}
+  jsonData: {fileID: 4900000, guid: de324bb31b0da7943a6a71389aa9b41a, type: 3}
 --- !u!136 &1756445147
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3882,7 +3870,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806641887}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.996066, y: 29.312244, z: -35.616932}
+  m_LocalPosition: {x: 13.221, y: 27.716, z: -35.799}
   m_LocalScale: {x: 1, y: 2.575, z: 4.1469326}
   m_Children: []
   m_Father: {fileID: 1070611623}
@@ -4783,7 +4771,7 @@ PrefabInstance:
     - target: {fileID: 2836551013918103037, guid: 947944f273669a0419624efba67bd34e,
         type: 3}
       propertyPath: field of view
-      value: 70
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 947944f273669a0419624efba67bd34e, type: 3}
@@ -4807,7 +4795,7 @@ PrefabInstance:
     - target: {fileID: 3748499742650605020, guid: 331ea6c5c30171847a691725ee841d02,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 70
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3748499742650605021, guid: 331ea6c5c30171847a691725ee841d02,
         type: 3}

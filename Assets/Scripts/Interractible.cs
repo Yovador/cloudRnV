@@ -6,28 +6,63 @@ using UnityEngine;
 public class Interractible : MonoBehaviour
 {
     protected UIController uiController;
-    [SerializeField] protected Dictionary<string, AudioClip> dialogDic = new Dictionary<string, AudioClip>() ;
     protected GameManager gameManager;
     protected AudioSource audioSource;
-    [SerializeField] protected AudioClip audioClip;
     [SerializeField] protected Material highlightMaterial;
     protected MeshRenderer meshRenderer;
     protected int highlightCooldown = 0;
     [SerializeField] protected int highlightCooldownMax = 2;
+    [SerializeField] TextAsset jsonData;
+
+    protected int currentDialog = 0;
+    protected string dialogFinal = "";
+    protected string audioclipFinal = "";
 
 
-    public virtual void Start()
+    [System.Serializable]
+    protected class Dialog
+    {
+        public string text;
+        public string audioclip;
+    }
+
+    [System.Serializable]
+    protected class ObjData
+    {
+        public string name;
+        public Dialog[] dialog;
+    }
+
+    protected ObjData objData;
+
+    void Start()
     {
 
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         audioSource = GetComponent<AudioSource>();
         meshRenderer = GetComponent<MeshRenderer>();
+
+        //LOAD DATA FROM JSON
+        if (jsonData != null)
+        {
+            objData = JsonUtility.FromJson<ObjData>(jsonData.text);
+
+            /*Debug.Log(objData.name + " : ");
+            foreach(Dialog dialog in objData.dialog)
+            {
+                Debug.Log(dialog.text + " / " + dialog.audioclip);
+            }*/
+        }
+        SetDialogAndAudioClip();
+
+
     }
 
     private void Update()
     {
-        if(highlightCooldown >= highlightCooldownMax)
+
+        if (highlightCooldown >= highlightCooldownMax)
         {
             Highlight(false);
         }
@@ -35,7 +70,47 @@ public class Interractible : MonoBehaviour
         {
             highlightCooldown++;
         }
+
+        if (!gameManager.GetGameStatus() && gameManager.GetSelectedObject() == gameObject) //If In Dialog
+        {
+            Debug.Log(dialogFinal);
+
+            if (!uiController.GetActiveDialogBox()) //If Dialog box is not open
+            {
+                Debug.Log("Start Dialog");
+                uiController.ShowDialogBox();
+
+                SetDialogAndAudioClip();
+                StartCoroutine(uiController.DisplayDialog(dialogFinal));
+                PlayAudio(objData.dialog[currentDialog].audioclip);
+            }
+            else
+            {
+                if (Input.GetButtonDown("Interract") || Input.GetButtonDown("Return") )
+                {
+                    currentDialog++;
+                    Debug.Log("Displaying dialog number : " + currentDialog);
+
+                    SetDialogAndAudioClip();
+                    StartCoroutine(uiController.DisplayDialog(dialogFinal));
+                }
+            }
+        }
+
+        if(currentDialog == objData.dialog.Length-1 && !gameManager.GetGameStatus())
+        {
+            Debug.Log("Last Dialog !");
+            gameManager.SetGameStatus(true);
+        }
+
     }
+
+    protected virtual void SetDialogAndAudioClip()
+    {
+        dialogFinal = objData.dialog[currentDialog].text;
+        audioclipFinal = objData.dialog[currentDialog].audioclip;
+    }
+
     void Highlight(bool status)
     {
         if(status)
@@ -50,39 +125,31 @@ public class Interractible : MonoBehaviour
 
     public void StartHighlight()
     {
-        Debug.Log("Highlight");
+        /*Debug.Log("Highlight");*/
         highlightCooldown = 0;
         Highlight(true);
     }
 
     public virtual void OnInterraction()
     {
-        Debug.Log("I " + gameObject.name + " have been hit ! " + gameManager.GetGameStatus());
-
-        if(gameManager.GetSelectedObject() == gameObject)
+        if (gameManager.GetSelectedObject() == gameObject)
         {
             Debug.Log("Selected");
             gameManager.ResetSelected();
-
+            currentDialog = 0;
         }
         else
         {
-            Debug.Log("Not Selected");
             gameManager.SetSelectedObject(gameObject);
-            Dialog();
+            gameManager.SetGameStatus(false);
         }
-
     }
 
-    protected virtual void Dialog()
+    public void PlayAudio(string clipPath)
     {
-        foreach (KeyValuePair<string, AudioClip> pair in dialogDic)
-        {
-            StartCoroutine(uiController.ShowDialogBox(pair.Key));
-            audioSource.clip = pair.Value;
-            audioSource.time = 0;
-            audioSource.Play();
-        }
+        audioSource.clip = Resources.Load<AudioClip>(clipPath);
+        audioSource.time = 0;
+        audioSource.Play();
     }
 
 }

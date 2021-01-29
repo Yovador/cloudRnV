@@ -55,9 +55,13 @@ public class GameManager : MonoBehaviour
         collectedCollectibles.Add(collectible);
     }
 
-    public void ChangeGameStatus(bool state)
+    public void SetGameStatus(bool state)
     {
         gameStatus = state;
+    }
+    public bool GetGameStatus()
+    {
+        return gameStatus;
     }
 
     public void ChangeAmbient(string ambient)
@@ -69,10 +73,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool GetGameStatus()
-    {
-        return gameStatus;
-    }
 
     public void Victory()
     {

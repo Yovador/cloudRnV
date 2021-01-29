@@ -12,14 +12,13 @@ public class UIController : MonoBehaviour
     [SerializeField] private float timeBetweenLetter;
 
 
-
     void Start()
     {
         dialogueBox = GameObject.Find("DialogueBox");
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         textComponent = GameObject.Find("Text").GetComponent<Text>();
         dialogueBox.SetActive(false);
-
+        
     }
 
     void Update()
@@ -30,12 +29,15 @@ public class UIController : MonoBehaviour
         }    
     }
 
-    public IEnumerator ShowDialogBox(string text)
+    public void ShowDialogBox()
+    {
+        dialogueBox.SetActive(true);
+    }
+
+    public IEnumerator DisplayDialog(string text)
     {
         string currentTxt = "";
         textComponent.text = currentTxt;
-        gameManager.ChangeGameStatus(false);
-        dialogueBox.SetActive(true);
         foreach(char letter in text)
         {
             yield return new WaitForSecondsRealtime(timeBetweenLetter);
@@ -47,8 +49,13 @@ public class UIController : MonoBehaviour
 
     public void HideDialogBox()
     {
-        gameManager.ChangeGameStatus(true);
+        gameManager.SetGameStatus(true);
         dialogueBox.SetActive(false);
+    }
+
+    public bool GetActiveDialogBox()
+    {
+        return dialogueBox.activeSelf;
     }
 
 }

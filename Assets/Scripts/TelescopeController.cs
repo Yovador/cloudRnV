@@ -4,25 +4,19 @@ using UnityEngine;
 
 public class TelescopeController : Interractible
 {
-    private string victoryDialog;
-
-    [SerializeField] private AudioClip failureAudioClip;
-    private AudioClip successAudioClip;
-
-    public override void Start()
-    {
-        base.Start();
-        //victoryDialog = dialog;
-        successAudioClip = audioClip;
-    }
+    private string dialog = "";
+    private string audioclip = "";
 
     public override void OnInterraction()
     {
-
         CheckForWin();
-
         base.OnInterraction();
+    }
 
+    protected override void SetDialogAndAudioClip()
+    {
+        dialogFinal = dialog;
+        audioclipFinal = audioclip;
     }
 
     private void CheckForWin()
@@ -30,13 +24,15 @@ public class TelescopeController : Interractible
 
         if (gameManager.GetCollectedCollectibles().Count != gameManager.GetCollectibles().Count)
         {
-            audioClip = failureAudioClip;
-            //dialog = "Missing Pieces ! " + gameManager.GetCollectedCollectibles().Count + " / " + gameManager.GetCollectibles().Count;
+            dialog = objData.dialog[0].text + " " + gameManager.GetCollectedCollectibles().Count + " / " + gameManager.GetCollectibles().Count;
+            audioclip = objData.dialog[0].audioclip;
+            currentDialog = objData.dialog.Length - 1;
         }
         else
         {
-            audioClip = successAudioClip;
-            //dialog = victoryDialog;
+            dialog = objData.dialog[1].text;
+            audioclip = objData.dialog[0].audioclip;
+            currentDialog = objData.dialog.Length - 1;
             gameManager.Victory();
         }
 

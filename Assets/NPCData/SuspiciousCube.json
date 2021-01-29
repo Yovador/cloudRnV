@@ -1,0 +1,23 @@
+{
+
+"name": "Un Cube Suspect",
+
+"dialog":[
+        {
+         "text": "Bonjour, je n'ai tué personne.",
+         "audioclip": "Sound/RobotVoiceClip/Aigu/RobotGrave1 (3)"   
+        },
+
+        {
+            "text": "Qu'est ce que tu as à me regarder, j'ai tué personne !",
+            "audioclip": "Sound/RobotVoiceClip/Aigu/RobotGrave1 (5)"   
+        },
+
+        {
+            "text": "AAAAAAAAAAAAAAAAAAAAAA",
+            "audioclip": "Sound/RobotVoiceClip/cris robot"   
+        }
+    ]
+
+}
+
