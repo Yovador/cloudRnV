@@ -6,7 +6,7 @@ using UnityEngine;
 public class Interractible : MonoBehaviour
 {
     protected UIController uiController;
-    [SerializeField][TextArea] protected string dialog = "I'm Interractible";
+    [SerializeField] protected Dictionary<string, AudioClip> dialogDic = new Dictionary<string, AudioClip>() ;
     protected GameManager gameManager;
     protected AudioSource audioSource;
     [SerializeField] protected AudioClip audioClip;
@@ -69,12 +69,20 @@ public class Interractible : MonoBehaviour
         {
             Debug.Log("Not Selected");
             gameManager.SetSelectedObject(gameObject);
-            StartCoroutine( uiController.ShowDialogBox(dialog) );
-            audioSource.clip = audioClip;
+            Dialog();
+        }
+
+    }
+
+    protected virtual void Dialog()
+    {
+        foreach (KeyValuePair<string, AudioClip> pair in dialogDic)
+        {
+            StartCoroutine(uiController.ShowDialogBox(pair.Key));
+            audioSource.clip = pair.Value;
             audioSource.time = 0;
             audioSource.Play();
         }
-
     }
 
 }

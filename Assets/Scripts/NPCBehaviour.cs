@@ -5,13 +5,18 @@ using UnityEngine;
 
 public class NPCBehaviour : Interractible
 {
-    [SerializeField] private string nameInterractible = "NPC";
+    [SerializeField] private string nameNPC = "NPC";
 
-    public override void Start()
+
+    protected override void Dialog()
     {
-        base.Start();
-
-        dialog = nameInterractible + " : " + dialog;
+        foreach (KeyValuePair<string, AudioClip> pair in dialogDic)
+        {
+            StartCoroutine(uiController.ShowDialogBox(nameNPC + " : " + pair.Key));
+            audioSource.clip = pair.Value;
+            audioSource.time = 0;
+            audioSource.Play();
+        }
     }
 
 }

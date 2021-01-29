@@ -12,7 +12,7 @@ public class TelescopeController : Interractible
     public override void Start()
     {
         base.Start();
-        victoryDialog = dialog;
+        //victoryDialog = dialog;
         successAudioClip = audioClip;
     }
 
@@ -31,12 +31,12 @@ public class TelescopeController : Interractible
         if (gameManager.GetCollectedCollectibles().Count != gameManager.GetCollectibles().Count)
         {
             audioClip = failureAudioClip;
-            dialog = "Missing Pieces ! " + gameManager.GetCollectedCollectibles().Count + " / " + gameManager.GetCollectibles().Count;
+            //dialog = "Missing Pieces ! " + gameManager.GetCollectedCollectibles().Count + " / " + gameManager.GetCollectibles().Count;
         }
         else
         {
             audioClip = successAudioClip;
-            dialog = victoryDialog;
+            //dialog = victoryDialog;
             gameManager.Victory();
         }
 
