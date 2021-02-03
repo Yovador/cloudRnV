@@ -95,3 +95,22 @@ MonoBehaviour:
   m_Name: DepthNormal
   m_EditorClassIdentifier: 
   m_Active: 1
+--- !u!114 &4214583364731711742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a67c9a447ae7964a9fbffabc968c027, type: 3}
+  m_Name: NewPostEffect
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    Event: 300
+    blitMaterial: {fileID: 0}
+    blitMaterialPassIndex: 0
+    destination: 0
+    textureId: _BlitPassTexture

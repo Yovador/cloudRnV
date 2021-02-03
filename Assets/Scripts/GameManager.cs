@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private bool gameStatus = true; // true : inGame ; false : In Dialogue
+    private int gameStatus = 0; // 0 : inGame ; 1 : In Dialog ; 2 : Last Dialog
     private List<GameObject> collectibles = new List<GameObject>();
     private List<GameObject> collectedCollectibles = new List<GameObject>();
     protected AudioSource audioSource;
@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     private string currentAmbient = "Outside";
     private UIController uiController;
     private GameObject selectedObject = null;
+
+    [SerializeField] private float interractionCooldown = 0.3f;
 
     private void Start()
     {
@@ -38,6 +40,12 @@ public class GameManager : MonoBehaviour
         {
             PlayRandomAmbient(ambientDic[currentAmbient]);
         }
+
+        if (Input.GetButtonDown("Interract"))
+        {
+            Debug.Log("Interract Pressed");
+        }
+
     }
 
     public List<GameObject> GetCollectibles()
@@ -55,11 +63,13 @@ public class GameManager : MonoBehaviour
         collectedCollectibles.Add(collectible);
     }
 
-    public void SetGameStatus(bool state)
+    public IEnumerator SetGameStatus(int state)
     {
+        yield return new WaitForEndOfFrame();
         gameStatus = state;
+        Debug.LogWarning("Current Game Status " + gameStatus);
     }
-    public bool GetGameStatus()
+    public int GetGameStatus()
     {
         return gameStatus;
     }
@@ -98,14 +108,20 @@ public class GameManager : MonoBehaviour
 
     public void ResetSelected()
     {
+        Debug.Log("Reset");
         uiController.HideDialogBox();
         if(GetSelectedObject() != null)
         {
+            GetSelectedObject().GetComponent<Interractible>().ResetDialog();
             if (GetSelectedObject().CompareTag("Collectibles"))
             {
                 GetSelectedObject().SetActive(false);
             }
         }
         SetSelectedObject(null);
+
+        StartCoroutine(SetGameStatus(0));
+
     }
+
 }

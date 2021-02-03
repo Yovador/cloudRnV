@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         raycastSource.rotation = cameraTransform.rotation;
 
-        if (gameManager.GetGameStatus())
+        if (gameManager.GetGameStatus() == 0)
         {
             Move();
             HighlightInterractible();
@@ -78,10 +78,7 @@ public class PlayerController : MonoBehaviour
         {
             Interract(hit);
         }
-        else
-        {
-            gameManager.ResetSelected();
-        }
+
     }
 
     void HighlightInterractible()
@@ -92,17 +89,17 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider.CompareTag("NPC"))
             {
-                hit.collider.gameObject.GetComponent<NPCBehaviour>().StartHighlight();
+                hit.collider.gameObject.GetComponent<Interractible>().StartHighlight();
             }
 
             else if (hit.collider.CompareTag("Collectibles"))
             {
-                hit.collider.gameObject.GetComponent<Collectibles>().StartHighlight();
+                hit.collider.gameObject.GetComponent<Interractible>().StartHighlight();
             }
 
             else if (hit.collider.CompareTag("Telescope"))
             {
-                hit.collider.gameObject.GetComponent<TelescopeController>().StartHighlight();
+                hit.collider.gameObject.GetComponent<Interractible>().StartHighlight();
             }
         }
 
@@ -121,21 +118,17 @@ public class PlayerController : MonoBehaviour
 
         if (hit.collider.CompareTag( "NPC" ) )
         {
-            hit.collider.gameObject.GetComponent<NPCBehaviour>().OnInterraction();
+            hit.collider.gameObject.GetComponent<Interractible>().OnInterraction();
         }
 
         else if (hit.collider.CompareTag("Collectibles"))
         {
-            hit.collider.gameObject.GetComponent<Collectibles>().OnInterraction();
+            hit.collider.gameObject.GetComponent<Interractible>().OnInterraction();
         }
 
         else if (hit.collider.CompareTag("Telescope"))
         {
-            hit.collider.gameObject.GetComponent<TelescopeController>().OnInterraction();
-        }
-        else if (hit.collider.CompareTag("Ground"))
-        {
-            gameManager.ResetSelected();
+            hit.collider.gameObject.GetComponent<Interractible>().OnInterraction();
         }
     }
 

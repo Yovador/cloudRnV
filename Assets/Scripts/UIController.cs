@@ -17,16 +17,21 @@ public class UIController : MonoBehaviour
         dialogueBox = GameObject.Find("DialogueBox");
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         textComponent = GameObject.Find("Text").GetComponent<Text>();
-        dialogueBox.SetActive(false);
+        HideDialogBox();
         
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Return") && !gameManager.GetGameStatus() )
+        if (Input.GetButtonDown("Return") && gameManager.GetGameStatus() != 0 )
         {
             gameManager.ResetSelected();
-        }    
+        }
+        if (Input.GetButtonDown("Interract") && gameManager.GetGameStatus() == 2)
+        {
+            Debug.Log("Quitting");
+            gameManager.ResetSelected();
+        }
     }
 
     public void ShowDialogBox()
@@ -36,6 +41,7 @@ public class UIController : MonoBehaviour
 
     public IEnumerator DisplayDialog(string text)
     {
+        StopAllCoroutines();
         string currentTxt = "";
         textComponent.text = currentTxt;
         foreach(char letter in text)
@@ -49,7 +55,6 @@ public class UIController : MonoBehaviour
 
     public void HideDialogBox()
     {
-        gameManager.SetGameStatus(true);
         dialogueBox.SetActive(false);
     }
 
