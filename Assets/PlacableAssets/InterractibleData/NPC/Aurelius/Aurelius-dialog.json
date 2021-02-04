@@ -1,0 +1,38 @@
+{
+
+"name": "Aurelius",
+
+"dialog":[
+        {
+         "text": "Ah te voilà, j’attendais ta venue Diodore. Rejoins moi dans ma prière veux-tu ? j’ai quelques choses à te dire.",
+         "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (6)"   
+        },
+
+        {
+            "text": "...Cela fait une semaine que la bénédiction du Nuage s’est arrêtée. Nos réserves d’eau sont presque à sec.",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (5)"   
+        },
+
+        {
+            "text": "John fait de son mieux pour rationner le peu qu’il reste mais… j’ai bien peur que ce ne soit pas suffisant.",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (3)"   
+        },
+
+        {
+            "text": "Si c’est jardins laissés par les titans dans leur sillage venaient à mourir… qui sait ce qui arriverait… Peut-être que les fameux envahisseurs de Sun arriveraient enfin ! hahaha !",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (1)"   
+        },
+
+        {
+            "text": "...",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (8)"   
+        },
+
+        {
+            "text": "Ramène nous la pluie Diodore, sans le Nuage je crains ce que nous deviendrons. Eugene semblait avoir trouvé un indice sur notre situation, iel doit encore être affairé sur le télescope. Que ton eau soit abondante.",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (7)"   
+        }
+    ]
+
+}
+

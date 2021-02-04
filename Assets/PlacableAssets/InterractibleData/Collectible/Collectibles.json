@@ -1,0 +1,14 @@
+{
+
+"name": "Collectibles",
+
+"dialog":[
+        {
+         "text": "On dirait une pièce de Téléscope, je ferais bien de la prendre avec moi",
+         "audioclip": "Sound/SFX/collecte piece 1"   
+        }
+
+    ]
+
+}
+

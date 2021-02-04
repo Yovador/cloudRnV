@@ -1,0 +1,38 @@
+{
+
+"name": "John",
+
+"dialog":[
+        {
+         "text": "Bonjour mon cher ! Comment allez-vous en cette belle journée ? Ma foi, inutile de vous causer du mouron ! Ne laissez pas tout ça vous prendre la tête !",
+         "audioclip": "Sound/RobotVoiceClip/Grave/RobotAigu1 (1)"   
+        },
+
+        {
+            "text": "Regardez moi, on m’a oublié dans cette cave y’a des années et même si j’en ai un peu par-dessus la tête j’ai toujours pas perdu la tête ! ",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotAigu1 (3)"   
+        },
+
+        {
+            "text": "Alors Hatshepsut vous dira sûrement que je suis tombé sur la tête, elle qui n’en fait jamais qu’à sa tête et fonce partout tête baissée.",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotAigu1 (5)"   
+        },
+
+        {
+            "text": "Mais gardez en tête que si vous gardez bien la tête sur les épaules, vous pourrez tenir tête à n’importe qui ou n’importe quoi.",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotAigu1 (6)"   
+        },
+
+        {
+            "text": "Allez, finissons-en avec ce tête à tête et retournons à nos tâches respectives.",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotAigu1 (8)"   
+        },
+
+        {
+            "text": "Si vous voudrez bien récupérer ces engrenages qui traînent dans mes canaux, j'apprécierai. N'oubliez pas Diodore, que votre eau soit abondante et gardez la tête froide !",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotAigu1 (7)"   
+        }
+    ]
+
+}
+

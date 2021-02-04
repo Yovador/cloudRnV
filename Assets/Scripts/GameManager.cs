@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class GameManager : MonoBehaviour
     private List<GameObject> collectibles = new List<GameObject>();
     private List<GameObject> collectedCollectibles = new List<GameObject>();
     protected AudioSource audioSource;
+    public string LevelToLoad;
 
+    [SerializeField] private Material outlineMaterial;
     [SerializeField] private List<AudioClip> ambientOutside = new List<AudioClip>();
     [SerializeField] private List<AudioClip> ambientInside = new List<AudioClip>();
     private Dictionary<string, List<AudioClip>> ambientDic = new Dictionary<string, List<AudioClip>>();
@@ -31,7 +34,14 @@ public class GameManager : MonoBehaviour
         PlayRandomAmbient(ambientDic[currentAmbient]);
 
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
+        outlineMaterial.SetFloat("_Outline_Thickness", 2);
 
+
+    }
+
+    private void PlayEnding()
+    {
+        SceneManager.LoadScene(LevelToLoad);
     }
 
     private void Update()
@@ -82,11 +92,11 @@ public class GameManager : MonoBehaviour
             PlayRandomAmbient(ambientDic[currentAmbient]);
         }
     }
-
-
+    
     public void Victory()
     {
-        Debug.LogWarning("VICTOIRE");
+        outlineMaterial.SetFloat("_Outline_Thickness", 0);
+        PlayEnding();
     }
 
     public GameObject GetSelectedObject()

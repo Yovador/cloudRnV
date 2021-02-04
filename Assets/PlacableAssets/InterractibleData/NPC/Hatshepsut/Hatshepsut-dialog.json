@@ -1,0 +1,43 @@
+{
+
+"name": "Hatshepsut",
+
+"dialog":[
+        {
+         "text": "Magnifique n’est-ce pas ? Même cette vieille tête de pioche de John Gibbs ne peut prétendre à ce genre de prouesses architecturales, et il a quand même entièrement conçu notre système d’approvisionnement d’eau.",
+         "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (6)"   
+        },
+
+        {
+            "text": "Même moi ça fait près de 40 ans que je mène l’effort de rénovation et je ne me lasse pas d’admirer cette arche.",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (5)"   
+        },
+
+        {
+            "text": "...",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (4)"   
+        },
+
+        {
+            "text": "Hey, je sais que t’es passionné d’histoire alors je me suis dis que ça t’intéresserait, mais surtout répète pas ça à Aurelius il aurait ma peau le vieux bougre.",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (1)"   
+        },
+
+        {
+            "text": "J’ai cette pensée qui germe depuis qu’on à trouvé des traces d’édifices plus petits...Et si les “Titans” n’avaient jamais été… ben… grands ? Si ça se trouve ils ont juste construit de très grands lieux peut-être même, pour leur propres dieux ? ",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (2)"   
+        },
+
+        {
+            "text": "Qu’est ce que je raconte, oublie mes divagations, si je continue comme ça je vais finir par rejoindre Gibbs au sous-sol.",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (7)"   
+        },
+
+        {
+            "text": "Avant d’y aller tu veux bien amener un truc à Eugene ? C’est juste un bidule que j’ai posé pas loin de l’arche, y’a moyen que ça l’intéresse, que ton eau soit abondante Diodore.",
+            "audioclip": "Sound/RobotVoiceClip/Grave/RobotGrave1 (8)"   
+        }
+    ]
+
+}
+

@@ -1,0 +1,28 @@
+{
+
+"name": "Eugene",
+
+"dialog":[
+        {
+         "text": "A-ah ! Hein ? Quoi ? O-oh c’est que toi Diodore, j’ai cru que c’était encore John qui venait me charrier haha.",
+         "audioclip": "Sound/RobotVoiceClip/Aigu/RobotAigu1 (6)"   
+        },
+
+        {
+            "text": "S-sacré affaire tout ça pas vrai ? Mais je pense avoir trouvé le problème ! Ou au moins une p-partie, c’est que de la supposition hein…",
+            "audioclip": "Sound/RobotVoiceClip/Aigu/RobotAigu1 (5)"   
+        },
+
+        {
+            "text": "Quoi qu’il en soit, je pense que c-certaines pièces du télescope sont défectueuses.",
+            "audioclip": "Sound/RobotVoiceClip/Aigu/RobotAigu1 (3)"   
+        },
+
+        {
+            "text": "Si tu trouves quelque chose qui peut y ressembler dans les alentours t-tu peux les ramener ici et je verrai ce que je peux en faire. Que ton eau soit abondante.",
+            "audioclip": "Sound/RobotVoiceClip/Aigu/RobotAigu1 (2)"   
+        }
+    ]
+
+}
+

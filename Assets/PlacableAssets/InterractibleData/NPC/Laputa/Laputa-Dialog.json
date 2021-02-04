@@ -1,0 +1,23 @@
+{
+
+"name": "Laputa",
+
+"dialog":[
+        {
+         "text": "Bleep-bloop Bienvenue. Aujourd’hui Laputa s’occupe des plantes. Laputa aime beaucoup les plantes. Laputa a besoin d’eau pour arroser les plantes.",
+         "audioclip": "Sound/RobotVoiceClip/Aigu/RobotAigu1 (1)"   
+        },
+
+        {
+            "text": "Bleep-bloop où est l’eau ? Toi aussi tu cherches l’eau ? Laputa a trouvé une jolie machine dans les jardins. Elle ne fait pas d’eau…",
+            "audioclip": "Sound/RobotVoiceClip/Aigu/RobotAigu1 (2)"   
+        },
+
+        {
+            "text": "Bleep-bloop dis à Laputa si tu trouves de l’eau. Laputa doit aller arroser les plantes.",
+            "audioclip": "Sound/RobotVoiceClip/Aigu/RobotAigu1 (3)"   
+        }
+    ]
+
+}
+

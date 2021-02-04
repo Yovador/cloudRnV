@@ -24,7 +24,7 @@ public class TelescopeController : Interractible
 
         if (gameManager.GetCollectedCollectibles().Count != gameManager.GetCollectibles().Count)
         {
-            dialog = objData.dialog[0].text + " " + gameManager.GetCollectedCollectibles().Count + " / " + gameManager.GetCollectibles().Count;
+            dialog = objData.dialog[0].text + " " + gameManager.GetCollectedCollectibles().Count + " pièces de téléscope, et il m'en faudrait " + gameManager.GetCollectibles().Count + ". Il va falloir que je continue de chercher...";
             audioclip = objData.dialog[0].audioclip;
             currentDialog = objData.dialog.Length - 1;
         }

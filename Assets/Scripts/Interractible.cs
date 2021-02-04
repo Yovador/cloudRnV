@@ -10,7 +10,7 @@ public class Interractible : MonoBehaviour
     protected AudioSource audioSource;
     [SerializeField] protected Material highlightMaterial;
     private Material defaultMat;
-    protected MeshRenderer meshRenderer;
+    protected Renderer mainRenderer;
     protected int highlightCooldown = 0;
     [SerializeField] protected int highlightCooldownMax = 2;
     [SerializeField] TextAsset jsonData;
@@ -46,8 +46,8 @@ public class Interractible : MonoBehaviour
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         audioSource = GetComponent<AudioSource>();
-        meshRenderer = graphicsObj.GetComponent<MeshRenderer>();
-        defaultMat = meshRenderer.material;
+        mainRenderer = graphicsObj.GetComponent<Renderer>();
+        defaultMat = mainRenderer.material;
         //LOAD DATA FROM JSON
         if (jsonData != null)
         {
@@ -151,11 +151,11 @@ public class Interractible : MonoBehaviour
     {
         if(status)
         {
-            meshRenderer.material = highlightMaterial;
+            mainRenderer.material = highlightMaterial;
         }
         else
         {
-            meshRenderer.material = defaultMat;
+            mainRenderer.material = defaultMat;
         }
     }
 
